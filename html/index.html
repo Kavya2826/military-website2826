@@ -3,313 +3,366 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="theme-color" content="#111610" />
-    <meta
-      name="description"
-      content="Military equipment and tactical gear catalogue."
-    />
-    <title>FIELD OPS | Tactical Equipment</title>
+    <title>VALOR | Tactical Supply</title>
+    <link rel="stylesheet" href="D:\codes\frontend\military-website2826\css\style.css" />
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
+      href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700;800;900&family=Inter:wght@400;500;600;700&display=swap"
       rel="stylesheet"
-      href="D:\codes\frontend\military-website\css\style.css"
     />
-    <script src="script.js" defer></script>
   </head>
 
   <body>
     <!-- NAVIGATION -->
     <header class="navbar">
-      <a class="brand" href="#home">
-        <span class="brand-mark">FO</span>
-        <span
-          >FIELD<span class="brand-accent">OPS</span>
-          <small>TACTICAL EQUIPMENT</small>
+      <a href="#" class="logo">
+        <span class="logo-symbol">✦</span>
+        <span class="logo-text">
+          VALOR
+          <small>TACTICAL SUPPLY</small>
         </span>
       </a>
 
-      <nav class="nav-links" id="navLinks">
-        <a href="#home">Home</a>
-        <a href="#categories">Shop</a>
+      <nav class="nav-links">
+        <a href="#" class="active">Home</a>
+        <a href="#categories">Categories</a>
+        <a href="#products">Shop</a>
         <a href="#about">About</a>
-        <a href="#contact">Contact</a>
+        <a href="#footer">Contact</a>
       </nav>
 
-      <button
-        class="menu-toggle"
-        id="menuToggle"
-        aria-label="Toggle navigation"
-        aria-expanded="false"
-      >
-        ☰
-      </button>
+      <div class="nav-actions">
+        <a href="#products" class="search-link"
+          >⌕ <span>Search gear...</span></a
+        >
+        <a href="#footer" class="nav-icon" aria-label="Account">♙</a>
+        <a href="#products" class="cart-link" aria-label="Shopping cart">
+          🛒 <span class="cart-count">0</span>
+        </a>
+      </div>
     </header>
 
+    <!-- HERO SECTION -->
     <main>
-      <!-- HERO -->
-      <section class="hero" id="home">
+      <section class="hero">
         <div class="hero-overlay"></div>
 
         <div class="hero-content">
-          <span class="eyebrow">PRECISION • PERFORMANCE • READINESS</span>
+          <p class="eyebrow">EQUIP YOUR NEXT MISSION</p>
 
           <h1>
-            BUILT FOR THE<br />
-            <span>MISSION.</span>
+            GEAR UP.<br />
+            <span>STAY READY.</span>
           </h1>
 
-          <p>
-            Explore tactical equipment, field essentials and professional-grade
-            gear in one place.
+          <p class="hero-description">
+            Explore dependable tactical equipment, outdoor essentials and
+            professional-grade field gear. Built for preparedness. Designed for
+            performance.
           </p>
 
-          <a href="#categories" class="primary-btn">
-            EXPLORE COLLECTION <span>→</span>
-          </a>
+          <div class="hero-buttons">
+            <a href="#categories" class="btn btn-primary">
+              EXPLORE COLLECTION <span>→</span>
+            </a>
+            <a href="#about" class="btn btn-outline"> OUR STORY </a>
+          </div>
 
           <div class="hero-stats">
             <div>
-              <strong>04</strong>
-              <span>COLLECTIONS</span>
+              <strong>06+</strong>
+              <span>GEAR CATEGORIES</span>
             </div>
             <div>
-              <strong>12+</strong>
-              <span>RIFLE MODELS</span>
+              <strong>QUALITY</strong>
+              <span>FIRST APPROACH</span>
             </div>
             <div>
-              <strong>01</strong>
-              <span>MISSION</span>
+              <strong>100%</strong>
+              <span>FOCUSED ON GEAR</span>
             </div>
           </div>
         </div>
 
-        <div class="hero-label">
-          <span class="status-dot"></span>
-          TACTICAL CATALOGUE
+        <div class="hero-index">
+          <span>01</span>
+          <span>02</span>
+          <span>03</span>
         </div>
+
+        <div class="hero-bottom-label">FIELD EQUIPMENT / EST. 2026</div>
       </section>
 
-      <!-- SHOP BY CATEGORY -->
-      <section class="categories section" id="categories">
+      <!-- CATEGORY SECTION -->
+      <section class="section categories-section" id="categories">
         <div class="section-heading">
           <div>
-            <span class="eyebrow">EQUIPMENT DIRECTORY / 01</span>
-            <h2>SHOP BY <span>CATEGORY</span></h2>
+            <p class="eyebrow">FIND YOUR EQUIPMENT</p>
+            <h2>SHOP BY CATEGORY<span>.</span></h2>
           </div>
 
-          <p>
-            Find the equipment you need. Select a category to explore its
-            collection.
-          </p>
+          <a href="#products" class="text-link">ALL COLLECTIONS →</a>
         </div>
 
         <div class="category-grid">
-          <button
-            class="category-card cat-rifles"
-            type="button"
-            data-category="Assault Rifles"
-            aria-label="Explore Assault Rifles"
-          >
+          <a href="#products" class="category-card">
             <img
-              src="images/category-rifles.jpg"
-              alt="Assault rifle collection"
-              loading="lazy"
+              src="https://i.pinimg.com/736x/f1/94/14/f194140179192936f1a5bd365087919b.jpg"
+              alt="Rifle displayed in a controlled setting"
             />
+            <div class="category-info">
+              <span>01 / FIREARMS</span>
+              <h3>ASSAULT RIFLES</h3>
+              <p>Explore collection →</p>
+            </div>
+          </a>
 
-            <span class="category-number">01 / WEAPON SYSTEMS</span>
-            <span class="category-content">
-              <span class="category-title">ASSAULT RIFLES</span>
-              <span class="category-description">
-                Explore the rifle catalogue
-              </span>
-              <span class="category-arrow">EXPLORE COLLECTION ↗</span>
-            </span>
-          </button>
-
-          <button
-            class="category-card cat-attachments"
-            type="button"
-            data-category="Tactical Attachments"
-            aria-label="Explore Tactical Attachments"
-          >
+          <a href="#products" class="category-card">
             <img
-              src="images/category-attachments.jpg"
-              alt="Tactical attachments"
-              loading="lazy"
+              src="https://i.pinimg.com/1200x/fc/64/9c/fc649c465a9054602536628d0d649536.jpg"
+              alt="Precision equipment and accessories"
             />
+            <div class="category-info">
+              <span>02 / ACCESSORIES</span>
+              <h3>TACTICAL ATTACHMENTS</h3>
+              <p>Explore collection →</p>
+            </div>
+          </a>
 
-            <span class="category-number">02 / ACCESSORIES</span>
-            <span class="category-content">
-              <span class="category-title">TACTICAL ATTACHMENTS</span>
-              <span class="category-description">
-                Equipment and accessories
-              </span>
-              <span class="category-arrow">EXPLORE COLLECTION ↗</span>
-            </span>
-          </button>
-
-          <button
-            class="category-card cat-gear"
-            type="button"
-            data-category="Tactical Gears"
-            aria-label="Explore Tactical Gears"
-          >
+          <a href="#products" class="category-card">
             <img
-              src="images/category-gear.jpg"
-              alt="Military helmet and tactical loadout"
-              loading="lazy"
+              src="https://i.pinimg.com/1200x/be/17/9d/be179d6aceb11825b769921ba8c75af2.jpg"
+              alt="Durable outdoor clothing"
             />
+            <div class="category-info">
+              <span>03 / PROTECTION</span>
+              <h3>TACTICAL GEAR</h3>
+              <p>Explore collection →</p>
+            </div>
+          </a>
 
-            <span class="category-number">03 / FIELD EQUIPMENT</span>
-            <span class="category-content">
-              <span class="category-title">TACTICAL GEARS</span>
-              <span class="category-description">
-                Helmets, loadouts and field gear
-              </span>
-              <span class="category-arrow">EXPLORE COLLECTION ↗</span>
-            </span>
-          </button>
-
-          <button
-            class="category-card cat-intercoms"
-            type="button"
-            data-category="Intercoms"
-            aria-label="Explore Intercoms"
-          >
+          <a href="#products" class="category-card">
             <img
-              src="images/category-intercoms.jpg"
-              alt="Military communication equipment"
-              loading="lazy"
+              src="https://i.pinimg.com/1200x/8e/f6/0c/8ef60ce8a744f867a38bdb02f287f08f.jpg"
+              alt="Optical equipment"
             />
+            <div class="category-info">
+              <span>04 / OPTICS</span>
+              <h3>HELMETS & OPTICS</h3>
+              <p>Explore collection →</p>
+            </div>
+          </a>
 
-            <span class="category-number">04 / COMMUNICATIONS</span>
-            <span class="category-content">
-              <span class="category-title">INTERCOMS</span>
-              <span class="category-description">
-                Communication systems and devices
-              </span>
-              <span class="category-arrow">EXPLORE COLLECTION ↗</span>
-            </span>
-          </button>
+          <a href="#products" class="category-card">
+            <img
+              src="https://i.pinimg.com/1200x/db/a7/e7/dba7e7288558daa5ae75464fdf67baf8.jpg"
+              alt="Electronic equipment"
+            />
+            <div class="category-info">
+              <span>05 / COMMUNICATION</span>
+              <h3>INTERCOMS & RADIOS</h3>
+              <p>Explore collection →</p>
+            </div>
+          </a>
+
+          <a href="#products" class="category-card">
+            <img
+              src="https://i.pinimg.com/1200x/89/d6/25/89d625f91c6aa08bff0cbd4200f1f0cb.jpg"
+              alt="Outdoor exploration and survival equipment"
+            />
+            <div class="category-info">
+              <span>06 / FIELD ESSENTIALS</span>
+              <h3>SURVIVAL EQUIPMENT</h3>
+              <p>Explore collection →</p>
+            </div>
+          </a>
         </div>
       </section>
 
-      <!-- ABOUT -->
-      <section class="about section" id="about">
-        <div class="about-copy">
-          <span class="eyebrow">OUR APPROACH / 02</span>
-          <h2>EQUIPMENT.<br /><span>WITHOUT COMPROMISE.</span></h2>
-          <p>
-            FIELD OPS is a military-themed equipment catalogue concept designed
-            to organize tactical equipment into a clear, accessible and modern
-            browsing experience.
-          </p>
+      <!-- FEATURED PRODUCTS -->
+      <section class="section products-section" id="products">
+        <div class="section-heading">
+          <div>
+            <p class="eyebrow">HANDPICKED ESSENTIALS</p>
+            <h2>FEATURED PRODUCTS<span>.</span></h2>
+          </div>
+
+          <a href="#categories" class="text-link">VIEW ALL PRODUCTS →</a>
         </div>
 
-        <div class="about-panel">
-          <span class="panel-symbol">FO.</span>
-          <p>MISSION READY.</p>
-          <span>BUILT AROUND THE DETAILS.</span>
+        <div class="product-grid">
+          <article class="product-card">
+            <div class="product-image">
+              <span class="product-tag">POPULAR</span>
+              <img
+                src="https://i.pinimg.com/736x/42/60/f4/4260f41cfacdb233065c681dab55ba60.jpg"
+                alt="Rifle product display"
+              />
+              <a href="#categories" class="quick-view">VIEW DETAILS →</a>
+            </div>
+            <div class="product-details">
+              <p class="product-category">FIREARMS</p>
+              <h3>AK-Style Rifle</h3>
+              <div class="product-bottom">
+                <strong>₹85,000</strong>
+                <span class="rating">★ 4.8</span>
+              </div>
+            </div>
+          </article>
+
+          <article class="product-card">
+            <div class="product-image">
+              <span class="product-tag">BEST SELLER</span>
+              <img
+                src="https://i.pinimg.com/736x/b4/28/c9/b428c9825a2f54c13a186ca98f9774af.jpg"
+                alt="Tactical clothing and equipment"
+              />
+              <a href="#categories" class="quick-view">VIEW DETAILS →</a>
+            </div>
+            <div class="product-details">
+              <p class="product-category">TACTICAL GEAR</p>
+              <h3>Modular Tactical Vest</h3>
+              <div class="product-bottom">
+                <strong>₹8,499</strong>
+                <span class="rating">★ 4.7</span>
+              </div>
+            </div>
+          </article>
+
+          <article class="product-card">
+            <div class="product-image">
+              <span class="product-tag">NEW ARRIVAL</span>
+              <img
+                src="https://i.pinimg.com/736x/4b/4d/42/4b4d429ede226dae02d487633a74f45d.jpg"
+                alt="Optical equipment display"
+              />
+              <a href="#categories" class="quick-view">VIEW DETAILS →</a>
+            </div>
+            <div class="product-details">
+              <p class="product-category">OPTICS</p>
+              <h3>Field Optics Kit</h3>
+              <div class="product-bottom">
+                <strong>₹12,999</strong>
+                <span class="rating">★ 4.6</span>
+              </div>
+            </div>
+          </article>
+
+          <article class="product-card">
+            <div class="product-image">
+              <img
+                src="https://i.pinimg.com/736x/0b/1d/a9/0b1da9eac41866f01d1c5f0866d35f7e.jpg"
+                alt="Outdoor survival equipment"
+              />
+              <a href="#categories" class="quick-view">VIEW DETAILS →</a>
+            </div>
+            <div class="product-details">
+              <p class="product-category">FIELD ESSENTIALS</p>
+              <h3>Tactical Gear Kit</h3>
+              <div class="product-bottom">
+                <strong>₹5,499</strong>
+                <span class="rating">★ 4.9</span>
+              </div>
+            </div>
+          </article>
         </div>
       </section>
 
-      <!-- CONTACT -->
-      <section class="contact section" id="contact">
-        <span class="eyebrow">GET IN TOUCH / 03</span>
-        <h2>HAVE A <span>QUESTION?</span></h2>
-        <p>Contact us for catalogue information and general enquiries.</p>
-        <a href="mailto:info@example.com" class="primary-btn">
-          CONTACT US <span>→</span>
-        </a>
-        <p class="contact-note">
-          Replace info@example.com with your actual contact email.
-        </p>
+      <!-- WHY CHOOSE US -->
+      <section class="section benefits-section" id="about">
+        <div class="section-heading">
+          <div>
+            <p class="eyebrow">THE VALOR STANDARD</p>
+            <h2>GEAR YOU CAN COUNT ON<span>.</span></h2>
+          </div>
+        </div>
+
+        <div class="benefits-grid">
+          <div class="benefit">
+            <span class="benefit-icon">⬡</span>
+            <h3>QUALITY FIRST</h3>
+            <p>
+              Carefully selected equipment with a focus on durability and
+              dependable performance.
+            </p>
+          </div>
+
+          <div class="benefit">
+            <span class="benefit-icon">◈</span>
+            <h3>BUILT FOR PURPOSE</h3>
+            <p>
+              Practical equipment for outdoor activities, preparedness and field
+              use.
+            </p>
+          </div>
+
+          <div class="benefit">
+            <span class="benefit-icon">◎</span>
+            <h3>INFORMED CHOICES</h3>
+            <p>
+              Clear product information to help you choose the right gear for
+              your needs.
+            </p>
+          </div>
+
+          <div class="benefit">
+            <span class="benefit-icon">◇</span>
+            <h3>RESPONSIBLE RETAIL</h3>
+            <p>
+              Safety, lawful use and applicable product regulations come first.
+            </p>
+          </div>
+        </div>
       </section>
     </main>
 
-    <!-- ASSAULT RIFLES POPUP -->
-    <div class="rifle-modal" id="rifleModal" aria-hidden="true">
-      <section
-        class="rifle-window"
-        role="dialog"
-        aria-modal="true"
-        aria-labelledby="rifleTitle"
-        tabindex="-1"
-      >
-        <div class="rifle-header">
-          <div>
-            <span class="eyebrow">EQUIPMENT DIRECTORY / 01</span>
-            <h2 id="rifleTitle">ASSAULT <span>RIFLES</span></h2>
-            <p>Explore the model catalogue.</p>
-          </div>
+    <!-- FOOTER -->
+    <footer class="footer" id="footer">
+      <div class="footer-main">
+        <div class="footer-brand">
+          <a href="#" class="logo">
+            <span class="logo-symbol">✦</span>
+            <span class="logo-text">
+              VALOR
+              <small>TACTICAL SUPPLY</small>
+            </span>
+          </a>
 
-          <button
-            class="rifle-close"
-            id="closeRifles"
-            type="button"
-            aria-label="Close catalogue"
-          >
-            &times;
-          </button>
+          <p>
+            Purpose-driven equipment for outdoor exploration, preparedness and
+            professional field applications.
+          </p>
         </div>
 
-        <div class="rifle-toolbar">
-          <input
-            type="search"
-            id="rifleSearch"
-            placeholder="Search models..."
-            aria-label="Search rifle models"
-          />
-
-          <select id="rifleFilter" aria-label="Filter by platform">
-            <option value="all">All Platforms</option>
-            <option value="5.56mm">5.56mm</option>
-            <option value="7.62mm">7.62mm</option>
-            <option value="5.45mm">5.45mm</option>
-            <option value="Other">Other Platforms</option>
-          </select>
+        <div class="footer-column">
+          <h3>EXPLORE</h3>
+          <a href="#categories">Categories</a>
+          <a href="#products">Featured products</a>
+          <a href="#about">About us</a>
         </div>
 
-        <div class="rifle-results">
-          <span id="rifleCount">12 MODELS</span>
-          <span>DEMONSTRATION CATALOGUE</span>
+        <div class="footer-column">
+          <h3>SUPPORT</h3>
+          <a href="#footer">Contact us</a>
+          <a href="#footer">Shipping policy</a>
+          <a href="#footer">Returns policy</a>
         </div>
 
-        <div class="rifle-grid" id="rifleGrid"></div>
+        <div class="footer-column">
+          <h3>INFORMATION</h3>
+          <a href="#footer">Privacy policy</a>
+          <a href="#footer">Terms of service</a>
+          <a href="#footer">Legal & safety</a>
+        </div>
+      </div>
 
-        <p class="rifle-disclaimer">
-          Conceptual catalogue only. Model information and image availability
-          are illustrative. No firearm sales or transactions are conducted
-          through this demonstration.
-        </p>
-      </section>
-    </div>
-
-    <!-- MODEL DETAILS POPUP -->
-    <div class="details-modal" id="detailsModal" aria-hidden="true">
-      <section
-        class="details-window"
-        role="dialog"
-        aria-modal="true"
-        aria-labelledby="detailsTitle"
-        tabindex="-1"
-      >
-        <button
-          class="rifle-close details-close"
-          id="closeDetails"
-          type="button"
-          aria-label="Close model details"
-        >
-          &times;
-        </button>
-
-        <div id="detailsContent"></div>
-      </section>
-    </div>
-
-    <footer class="footer">
-      <a href="#home" class="footer-brand">FIELD<span>OPS</span></a>
-      <p>TACTICAL EQUIPMENT CATALOGUE</p>
-      <span>© 2026 FIELD OPS. DEMONSTRATION WEBSITE.</span>
+      <div class="footer-bottom">
+        <p>© 2026 VALOR TACTICAL SUPPLY. ALL RIGHTS RESERVED.</p>
+        <p>BUILT WITH PURPOSE. DESIGNED FOR THE FIELD.</p>
+      </div>
     </footer>
   </body>
 </html>
