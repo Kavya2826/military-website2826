@@ -49,3 +49,11 @@ a{text-decoration:none;color:inherit}img{display:block;width:100%}button,input,s
 .success-order-items p{padding:7px 0;border-bottom:1px solid var(--border)}
 .order-success .checkout-button{margin-top:8px}
 @media(max-width:600px){.checkout-form{padding:20px}.checkout-fields{grid-template-columns:1fr}.checkout-fields label:nth-child(4),.checkout-fields label:nth-child(5){grid-column:auto}.order-success{padding:24px 20px}}
+
+/* Demo-only QR screen */
+.demo-qr-panel{padding:30px;text-align:center}
+.demo-qr-panel h3{font-family:var(--font-heading);font-size:30px;letter-spacing:1px;margin:4px 0 8px}
+.demo-qr-panel>p:not(.eyebrow){max-width:420px;margin:0 auto 18px;color:var(--muted);font-size:12px}
+.demo-qr-image{display:block;width:240px;height:240px;max-width:100%;margin:0 auto 16px;padding:10px;background:#fff;object-fit:contain}
+.demo-qr-caption{font-size:10px!important;font-weight:800;letter-spacing:1.5px;color:var(--olive-light)!important}
+.demo-qr-panel .checkout-button{max-width:260px;margin-top:12px}
