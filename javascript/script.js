@@ -12,9 +12,7 @@
   const cartLink = document.querySelector(".cart-link");
   const checkoutButton = document.querySelector("[data-open-checkout]");
   const checkoutOverlay = document.querySelector("#checkout-overlay");
-  const checkoutForm = document.querySelector("#checkout-form");
-  const orderSuccess = document.querySelector("#order-success");
-  if (!overlay || !cartItems || !cartCount || !cartTotal || !cartLink || !checkoutButton || !checkoutOverlay || !checkoutForm) return;
+  if (!overlay || !cartItems || !cartCount || !cartTotal || !cartLink || !checkoutButton || !checkoutOverlay) return;
 
   const formatINR = (amount) => new Intl.NumberFormat("en-IN", { style: "currency", currency: "INR", maximumFractionDigits: 0 }).format(amount);
   const readCart = () => {
@@ -42,8 +40,6 @@
     cartItemCount.textContent = count + (count === 1 ? " item" : " items");
     checkoutButton.disabled = cart.length === 0;
     checkoutButton.setAttribute("aria-disabled", String(cart.length === 0));
-    const checkoutTotal = checkoutOverlay.querySelector("[data-checkout-total]");
-    if (checkoutTotal) checkoutTotal.textContent = formatINR(cart.reduce((sum, item) => sum + item.price * item.quantity, 0));
   };
   const makeButton = (label, action, itemId, className = "") => {
     const button = document.createElement("button");
@@ -161,69 +157,23 @@
 
   checkoutButton.addEventListener("click", () => {
     if (cart.length === 0) return;
-    checkoutForm.hidden = false;
-    orderSuccess.hidden = true;
+    const qrImage = checkoutOverlay.querySelector("#demo-qr-image");
+    const itemCount = cart.reduce((sum, item) => sum + item.quantity, 0);
+    const total = cart.reduce((sum, item) => sum + item.price * item.quantity, 0);
+    const demoPayload = "VALOR DEMO ONLY | NO PAYMENT | ITEMS: " + itemCount + " | TOTAL: " + formatINR(total);
+    qrImage.src = "https://api.qrserver.com/v1/create-qr-code/?size=240x240&data=" + encodeURIComponent(demoPayload);
     overlay.classList.remove("is-open");
     overlay.setAttribute("aria-hidden", "true");
     checkoutOverlay.classList.add("is-open");
     checkoutOverlay.setAttribute("aria-hidden", "false");
     document.body.classList.add("modal-open");
-    checkoutOverlay.querySelector('input[name="customerName"]').focus();
+    checkoutOverlay.querySelector("[data-finish-order]").focus();
   });
 
   checkoutOverlay.querySelectorAll("[data-close-checkout]").forEach((button) => button.addEventListener("click", closeCheckout));
   checkoutOverlay.addEventListener("click", (event) => { if (event.target === checkoutOverlay) closeCheckout(); });
   checkoutOverlay.querySelector("[data-finish-order]").addEventListener("click", closeCheckout);
 
-  checkoutForm.addEventListener("submit", (event) => {
-    event.preventDefault();
-    if (cart.length === 0 || !checkoutForm.reportValidity()) return;
-
-    const formData = new FormData(checkoutForm);
-    const orderTotal = cart.reduce((sum, item) => sum + item.price * item.quantity, 0);
-    const orderId = "VAL-" + Date.now().toString(36).toUpperCase();
-    const order = {
-      id: orderId,
-      createdAt: new Date().toISOString(),
-      customer: {
-        name: String(formData.get("customerName")).trim(),
-        email: String(formData.get("email")).trim(),
-        phone: String(formData.get("phone")).trim(),
-        address: String(formData.get("address")).trim()
-      },
-      paymentMethod: String(formData.get("paymentMethod")),
-      items: cart.map((item) => ({ ...item })),
-      total: orderTotal,
-      status: "Demo order placed — payment not processed"
-    };
-
-    try {
-      const previousOrders = JSON.parse(localStorage.getItem("valor-demo-orders-v1") || "[]");
-      const orders = Array.isArray(previousOrders) ? previousOrders : [];
-      orders.push(order);
-      localStorage.setItem("valor-demo-orders-v1", JSON.stringify(orders));
-    } catch {
-      showToast("Could not save the demo order. Check browser storage and try again.");
-      return;
-    }
-
-    const itemsContainer = checkoutOverlay.querySelector("[data-order-items]");
-    itemsContainer.replaceChildren();
-    order.items.forEach((item) => {
-      const line = document.createElement("p");
-      line.textContent = item.name + " × " + item.quantity + " — " + formatINR(item.price * item.quantity);
-      itemsContainer.append(line);
-    });
-    checkoutOverlay.querySelector("[data-order-id]").textContent = orderId;
-    checkoutOverlay.querySelector("[data-order-total]").textContent = formatINR(orderTotal);
-    checkoutForm.reset();
-    checkoutForm.hidden = true;
-    orderSuccess.hidden = false;
-
-    cart = [];
-    saveCart();
-    renderCart();
-  });
 
   renderCart();
 })();
