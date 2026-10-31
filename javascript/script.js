@@ -10,7 +10,9 @@
   const cartTotal = document.querySelector(".cart-total-value");
   const toast = document.querySelector(".toast");
   const cartLink = document.querySelector(".cart-link");
-  if (!overlay || !cartItems || !cartCount || !cartTotal || !cartLink) return;
+  const checkoutButton = document.querySelector("[data-open-checkout]");
+  const checkoutOverlay = document.querySelector("#checkout-overlay");
+  if (!overlay || !cartItems || !cartCount || !cartTotal || !cartLink || !checkoutButton || !checkoutOverlay) return;
 
   const formatINR = (amount) => new Intl.NumberFormat("en-IN", { style: "currency", currency: "INR", maximumFractionDigits: 0 }).format(amount);
   const readCart = () => {
@@ -36,6 +38,8 @@
     const count = cart.reduce((sum, item) => sum + item.quantity, 0);
     cartCount.textContent = String(count);
     cartItemCount.textContent = count + (count === 1 ? " item" : " items");
+    checkoutButton.disabled = cart.length === 0;
+    checkoutButton.setAttribute("aria-disabled", String(cart.length === 0));
   };
   const makeButton = (label, action, itemId, className = "") => {
     const button = document.createElement("button");
@@ -142,6 +146,34 @@
     saveCart();
     renderCart();
   });
+
+
+  const closeCheckout = () => {
+    checkoutOverlay.classList.remove("is-open");
+    checkoutOverlay.setAttribute("aria-hidden", "true");
+    document.body.classList.remove("modal-open");
+    cartLink.focus();
+  };
+
+  checkoutButton.addEventListener("click", () => {
+    if (cart.length === 0) return;
+    const qrImage = checkoutOverlay.querySelector("#demo-qr-image");
+    const itemCount = cart.reduce((sum, item) => sum + item.quantity, 0);
+    const total = cart.reduce((sum, item) => sum + item.price * item.quantity, 0);
+    const demoPayload = "VALOR DEMO ONLY | NO PAYMENT | ITEMS: " + itemCount + " | TOTAL: " + formatINR(total);
+    qrImage.src = "https://api.qrserver.com/v1/create-qr-code/?size=240x240&data=" + encodeURIComponent(demoPayload);
+    overlay.classList.remove("is-open");
+    overlay.setAttribute("aria-hidden", "true");
+    checkoutOverlay.classList.add("is-open");
+    checkoutOverlay.setAttribute("aria-hidden", "false");
+    document.body.classList.add("modal-open");
+    checkoutOverlay.querySelector("[data-finish-order]").focus();
+  });
+
+  checkoutOverlay.querySelectorAll("[data-close-checkout]").forEach((button) => button.addEventListener("click", closeCheckout));
+  checkoutOverlay.addEventListener("click", (event) => { if (event.target === checkoutOverlay) closeCheckout(); });
+  checkoutOverlay.querySelector("[data-finish-order]").addEventListener("click", closeCheckout);
+
 
   renderCart();
 })();

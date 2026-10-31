@@ -421,7 +421,25 @@
           <button class="close-button" type="button" data-close-cart aria-label="Close cart">&times;</button>
         </div>
         <div class="cart-items" aria-live="polite"></div>
-        <div class="cart-summary"><div class="cart-total"><span>SUBTOTAL</span><strong class="cart-total-value">₹0</strong></div><p>Taxes and delivery charges, if applicable, are calculated separately.</p><button class="checkout-button" type="button" disabled aria-disabled="true">DEMO CART — CHECKOUT DISABLED</button></div>
+        <div class="cart-summary"><div class="cart-total"><span>SUBTOTAL</span><strong class="cart-total-value">₹0</strong></div><p>Taxes and delivery charges, if applicable, are calculated separately.</p><button class="checkout-button" type="button" data-open-checkout disabled aria-disabled="true">PROCEED TO CHECKOUT</button></div>
+      </section>
+    </div>
+
+    <!-- DEMO CHECKOUT -->
+    <div class="overlay" id="checkout-overlay" aria-hidden="true">
+      <section class="modal-window checkout-window" role="dialog" aria-modal="true" aria-labelledby="checkout-title">
+        <div class="modal-header">
+          <div><p class="eyebrow">DEMO ORDER</p><h2 id="checkout-title">CHECKOUT<span>.</span></h2><p>Complete the form to place a simulated order.</p></div>
+          <button class="close-button" type="button" data-close-checkout aria-label="Close checkout">&times;</button>
+        </div>
+        <div class="demo-qr-panel">
+          <p class="eyebrow">DEMO QR CODE</p>
+          <h3>SCAN TO VIEW DEMO</h3>
+          <p>This QR code is for display/testing only. It does not initiate a payment.</p>
+          <img id="demo-qr-image" class="demo-qr-image" alt="Demo QR code. No payment will be processed." />
+          <p class="demo-qr-caption">NO PAYMENT • NO UPI • NO REAL ORDER</p>
+          <button class="checkout-button" type="button" data-finish-order>BACK TO CART</button>
+        </div>
       </section>
     </div>
     <div class="toast" role="status" aria-live="polite"></div>
