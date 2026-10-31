@@ -2,7 +2,7 @@
   "use strict";
   const STORAGE_KEY = "valor-cart-v1";
   // Only general-purpose, non-weapon gear categories are eligible for cart actions.
-  const ELIGIBLE_CATEGORIES = new Set(["PROTECTION", "FIELD ESSENTIALS", "COMMUNICATION", "OUTDOOR", "SURVIVAL"]);
+  const ELIGIBLE_CATEGORIES = new Set(["FIREARMS", "OPTICS"]);
   const overlay = document.querySelector("#cart-overlay");
   const cartItems = document.querySelector(".cart-items");
   const cartCount = document.querySelector(".cart-count");
