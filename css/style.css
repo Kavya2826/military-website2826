@@ -25,3 +25,27 @@ a{text-decoration:none;color:inherit}img{display:block;width:100%}button,input,s
 @media(max-width:760px){.navbar{min-height:auto;padding:15px 5%;flex-wrap:wrap;gap:15px}.logo-text{font-size:25px}.logo-symbol{font-size:35px}.nav-links{display:none;order:3;width:100%;overflow-x:auto;gap:24px;border-top:1px solid var(--border)}.nav-links.open{display:flex}.nav-links a{padding:10px 0 5px;white-space:nowrap}.nav-links a.active:after{bottom:0}.nav-actions{margin-left:auto;gap:14px}.menu-toggle{display:block}.hero{min-height:600px;background-position:center}.hero-content{padding:60px 6%}.hero h1{font-size:clamp(58px,12vw,82px)}.hero-index{display:none}.hero-stats{gap:20px}.hero-stats strong{font-size:18px}.hero-stats span{font-size:7px}.section{padding:60px 5%}.section-heading{align-items:flex-start;flex-direction:column}.category-card{height:230px}.product-image{height:220px}.promo-section{padding:55px 6%}.footer-main{grid-template-columns:repeat(2,minmax(0,1fr));gap:35px 25px}.footer-bottom{flex-direction:column}.overlay{padding:10px}.modal-window{max-height:94vh}.modal-header{padding:20px}.modal-toolbar{padding:12px 18px}.shop-products{grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;padding:18px}.shop-product-image{height:150px}.shop-product-details{padding:11px}.shop-product-details h3{font-size:19px}.cart-items,.cart-summary{padding:18px}.cart-item{grid-template-columns:65px minmax(0,1fr);gap:12px}.cart-item>img{width:65px;height:75px}.cart-item>strong{grid-column:2}}
 @media(max-width:440px){.search-link{padding:8px}.hero{min-height:580px}.hero h1{font-size:56px}.hero-description{font-size:12px}.hero-stats{gap:13px}.hero-stats strong{font-size:16px}.hero-stats span{font-size:6px;letter-spacing:.5px}.btn{padding:12px 14px;font-size:13px}.category-grid,.product-grid,.benefits-grid,.footer-main{grid-template-columns:1fr}.category-card{height:250px}.product-image{height:270px}.shop-products{grid-template-columns:1fr}.shop-product-image{height:200px}.modal-toolbar{align-items:stretch;flex-direction:column}.search-field{max-width:none}.sort-field{justify-content:space-between}.cart-item{grid-template-columns:58px minmax(0,1fr);gap:10px}.cart-item>img{width:58px;height:68px}.quantity-controls{gap:6px}}
 @media(prefers-reduced-motion:reduce){*,*:before,*:after{scroll-behavior:auto!important;transition-duration:.01ms!important;animation-duration:.01ms!important}}
+
+/* Demo checkout */
+.checkout-window{width:min(700px,100%)}
+.checkout-form{padding:26px 30px 30px}
+.checkout-fields{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px}
+.checkout-fields label{display:flex;flex-direction:column;gap:7px;color:var(--sand);font-size:10px;font-weight:700;letter-spacing:1px;text-transform:uppercase}
+.checkout-fields label:nth-child(4),.checkout-fields label:nth-child(5){grid-column:1/-1}
+.checkout-fields input,.checkout-fields textarea,.checkout-fields select{width:100%;padding:12px;border:1px solid #3c4034;background:#0c0f0b;color:var(--white);border-radius:0;outline:none;font-size:13px;letter-spacing:0;text-transform:none}
+.checkout-fields input:focus,.checkout-fields textarea:focus,.checkout-fields select:focus{border-color:var(--olive-light)}
+.checkout-fields textarea{resize:vertical}
+.checkout-notice{margin:20px 0;padding:12px 14px;border:1px solid #665b38;background:#262317;color:#d6c99f;font-size:11px;line-height:1.7}
+.checkout-total{display:flex;align-items:center;justify-content:space-between;gap:15px;margin:18px 0;padding:16px 0;border-top:1px solid var(--border);font-size:12px;letter-spacing:1px}
+.checkout-total strong{color:var(--sand);font-size:22px;letter-spacing:0}
+.checkout-button:disabled{opacity:.45;cursor:not-allowed}
+.order-success{padding:32px 30px;text-align:center}
+.order-success h2{font-family:var(--font-heading);font-size:42px}
+.order-success h2 span{color:var(--olive-light)}
+.order-success .success-message{color:var(--muted);font-size:13px;margin:8px 0 18px}
+.order-number{padding:12px;background:#171a14;color:var(--muted);font-size:12px}
+.order-number strong{color:var(--sand);letter-spacing:1px}
+.success-order-items{padding:16px 0;text-align:left;color:#c9cabe;font-size:12px}
+.success-order-items p{padding:7px 0;border-bottom:1px solid var(--border)}
+.order-success .checkout-button{margin-top:8px}
+@media(max-width:600px){.checkout-form{padding:20px}.checkout-fields{grid-template-columns:1fr}.checkout-fields label:nth-child(4),.checkout-fields label:nth-child(5){grid-column:auto}.order-success{padding:24px 20px}}
