@@ -421,7 +421,38 @@
           <button class="close-button" type="button" data-close-cart aria-label="Close cart">&times;</button>
         </div>
         <div class="cart-items" aria-live="polite"></div>
-        <div class="cart-summary"><div class="cart-total"><span>SUBTOTAL</span><strong class="cart-total-value">₹0</strong></div><p>Taxes and delivery charges, if applicable, are calculated separately.</p><button class="checkout-button" type="button" disabled aria-disabled="true">DEMO CART — CHECKOUT DISABLED</button></div>
+        <div class="cart-summary"><div class="cart-total"><span>SUBTOTAL</span><strong class="cart-total-value">₹0</strong></div><p>Taxes and delivery charges, if applicable, are calculated separately.</p><button class="checkout-button" type="button" data-open-checkout disabled aria-disabled="true">PROCEED TO CHECKOUT</button></div>
+      </section>
+    </div>
+
+    <!-- DEMO CHECKOUT -->
+    <div class="overlay" id="checkout-overlay" aria-hidden="true">
+      <section class="modal-window checkout-window" role="dialog" aria-modal="true" aria-labelledby="checkout-title">
+        <div class="modal-header">
+          <div><p class="eyebrow">DEMO ORDER</p><h2 id="checkout-title">CHECKOUT<span>.</span></h2><p>Complete the form to place a simulated order.</p></div>
+          <button class="close-button" type="button" data-close-checkout aria-label="Close checkout">&times;</button>
+        </div>
+        <form class="checkout-form" id="checkout-form">
+          <div class="checkout-fields">
+            <label>Full name<input name="customerName" type="text" autocomplete="name" required minlength="2" maxlength="80" placeholder="Your full name"></label>
+            <label>Email address<input name="email" type="email" autocomplete="email" required maxlength="120" placeholder="you@example.com"></label>
+            <label>Phone number<input name="phone" type="tel" autocomplete="tel" required pattern="[0-9+() -]{8,18}" placeholder="Your contact number"></label>
+            <label>Delivery address<textarea name="address" autocomplete="street-address" required minlength="10" maxlength="300" rows="3" placeholder="House / street, area, city, PIN code"></textarea></label>
+            <label>Payment method<select name="paymentMethod" required><option value="Cash on Delivery (demo)">Cash on Delivery (demo)</option><option value="UPI (demo only)">UPI (demo only — no payment processed)</option></select></label>
+          </div>
+          <div class="checkout-notice">College project demo only. No payment will be collected and no real order will be shipped. Do not enter sensitive or real payment information.</div>
+          <div class="checkout-total"><span>ORDER TOTAL</span><strong data-checkout-total>₹0</strong></div>
+          <button class="checkout-button" type="submit">PLACE DEMO ORDER</button>
+        </form>
+        <div class="order-success" id="order-success" hidden aria-live="polite">
+          <p class="eyebrow">ORDER CONFIRMED</p>
+          <h2>THANK YOU<span>.</span></h2>
+          <p class="success-message">Your demo order has been recorded on this device.</p>
+          <p class="order-number">Order ID: <strong data-order-id></strong></p>
+          <div class="success-order-items" data-order-items></div>
+          <div class="checkout-total"><span>ORDER TOTAL</span><strong data-order-total>₹0</strong></div>
+          <button class="checkout-button" type="button" data-finish-order>CONTINUE SHOPPING</button>
+        </div>
       </section>
     </div>
     <div class="toast" role="status" aria-live="polite"></div>
