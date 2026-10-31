@@ -6,7 +6,7 @@
     <title>VALOR | Tactical Supply</title>
     <link
       rel="stylesheet"
-      href="D:\codes\frontend\military-website2826\css\style.css"
+      href="../css/style.css"
     />
 
     <!-- Google Fonts -->
@@ -42,7 +42,7 @@
           >⌕ <span>Search gear...</span></a
         >
         <a href="#footer" class="nav-icon" aria-label="Account">♙</a>
-        <a href="#products" class="cart-link" aria-label="Shopping cart">
+        <a href="#cart" class="cart-link" aria-label="Open shopping cart" aria-haspopup="dialog" aria-controls="cart-overlay">
           🛒 <span class="cart-count">0</span>
         </a>
       </div>
@@ -413,6 +413,18 @@
     </footer>
 
 
-    <script src="D:\codes\frontend\military-website2826\javascript\script.js"></script>
+    <!-- CART DIALOG -->
+    <div class="overlay" id="cart-overlay" aria-hidden="true">
+      <section class="modal-window cart-window" role="dialog" aria-modal="true" aria-labelledby="cart-title">
+        <div class="modal-header">
+          <div><p class="eyebrow">YOUR SELECTION</p><h2 id="cart-title">SHOPPING CART<span>.</span></h2><p class="cart-item-count">0 items</p></div>
+          <button class="close-button" type="button" data-close-cart aria-label="Close cart">&times;</button>
+        </div>
+        <div class="cart-items" aria-live="polite"></div>
+        <div class="cart-summary"><div class="cart-total"><span>SUBTOTAL</span><strong class="cart-total-value">₹0</strong></div><p>Taxes and delivery charges, if applicable, are calculated separately.</p><button class="checkout-button" type="button" disabled aria-disabled="true">DEMO CART — CHECKOUT DISABLED</button></div>
+      </section>
+    </div>
+    <div class="toast" role="status" aria-live="polite"></div>
+    <script src="../javascript/script.js"></script>
   </body>
 </html>
